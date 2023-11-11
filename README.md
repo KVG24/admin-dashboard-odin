@@ -1,2 +1,3 @@
-# admin-dashboard-odin
-TOR lesson. Admin Dashboard 
+#TOR lesson. Admin Dashboard 
+
+Lesson from The Odin Project 
