@@ -1,3 +1,8 @@
+:root {
+    --blue: rgb(35, 142, 192);
+    --light: rgb(215, 223, 228);
+}
+
 html * {
     padding: 0;
     margin: 0;
@@ -5,9 +10,10 @@ html * {
 }
 
 body {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     margin: 0;
+    font-family: 'Roboto';
 }
 
 h2 {
@@ -23,9 +29,8 @@ h2 {
 
 .sidebar {
     grid-area: 1 / 1 / 3 / 2;
-    background-color: rgb(30, 123, 167);
+    background-color: var(--blue);
     color: white;
-    font-family: 'Roboto';
     display: flex;
     flex-direction: column;
     gap: 50px;
@@ -58,7 +63,6 @@ h2 {
 
     .menu-main div:hover,
     .menu-2 div:hover {
-        border: 2px solid rgba(185, 185, 185, 0.5);
         background-color: rgb(29, 117, 158);
     }
 
@@ -69,6 +73,7 @@ h2 {
     padding: 30px;
     row-gap: 30px;
     box-shadow: 0px 10px 10px gray;
+    z-index: 1;
 }
 
 .header img {
@@ -81,7 +86,6 @@ h2 {
         display: flex;
         align-items: center;
         gap: 20px;
-        padding-right: 100px;
     }
 
         .search label {
@@ -89,8 +93,8 @@ h2 {
         }
 
         input[type="search"] {
-            width: 100%;
-            background-color: rgb(215, 223, 228);
+            width: 80%;
+            background-color: var(--light);
             border: 0;
             border-radius: 20px;
             padding-left: 15px;
@@ -110,8 +114,14 @@ h2 {
         }
 
         .notifications {
-            width: 35px;
-            height: 35px;
+            width: 40px;
+            height: 40px;
+        }
+
+        .notifications img:hover {
+            border-radius: 5px;
+            background-color: rgb(233, 239, 241);
+            box-shadow: 0px 0px 10px gray;
         }
 
         .pfp {
@@ -123,10 +133,14 @@ h2 {
             max-width: 100%;
             height: auto;
             border-radius: 50%;
+            transition: 300ms;
+        }
+
+        .pfp img:hover {
+            transform: scale(1.2);
         }
 
         .profile > h2 {
-            font-family: 'Roboto';
             width: 200px;
         }
 
@@ -135,7 +149,6 @@ h2 {
         display: flex;
         gap: 20px;
         align-items: center;
-        font-family: 'Roboto';
     }
 
         .greeting-pfp {
@@ -164,18 +177,158 @@ h2 {
     }
 
         .buttons button {
-            width: 150px;
+            width: 8vw;
             height: 50px;
             border: 0;
             border-radius: 30px;
-            background-color: rgb(35, 142, 192);
+            background-color: var(--blue);
             color: white;
-            font-family: 'Roboto';
             font-weight: 700;
             font-size: 20px;
             cursor: pointer;
+            transition: 100ms;
+        }
+
+        .buttons button:hover {
+            transform: scale(1.1);
         }
 
 .content {
     grid-area: 2 / 2 / 3 / 3;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    padding: 30px;
+    gap: 20px;
+    background-color: var(--light);
 }
+
+.content h2 {
+    font-weight: 700;
+}
+
+    .left {
+        grid-column: 1 / 2;
+    }
+
+        .cards {
+            padding-top: 15px;
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        }
+
+        .card {
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            padding: 30px 20px 15px 20px;
+            background-color: white;
+            border-radius: 20px;
+            border-left: 8px solid orange;
+            box-shadow: 3px 3px 3px gray;
+        }
+
+        .card p {
+            flex-grow: 1;
+            overflow: auto;
+            font-weight: 300;
+        }
+
+        .card-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .card-buttons div {
+            width: 40px;
+            height: 40px;
+            padding: 5px;
+        }
+
+        .card h2 {
+            font-weight: 500;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+
+        .card-buttons div:hover {
+            border-radius: 10px;
+            background-color: rgb(233, 239, 241);
+            box-shadow: 0px 0px 5px gray;
+        }
+
+    .right {
+        grid-column: 2 / 3;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+        .announcement-card {
+            background-color: white;
+            border-radius: 20px;
+            margin-top: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            box-shadow: 3px 3px 3px gray;
+        }
+
+        .item {
+            cursor: pointer;
+            padding: 10px;
+            transition: 100ms;
+        }
+
+        .line {
+            border: 1px solid rgba(128, 128, 128, 0.5);
+        }
+
+        .item:hover {
+            background-color: rgb(201, 206, 207);
+        }
+
+        .anno-card p {
+            font-size: 14px;
+        }
+
+        .trending-card {
+            background-color: white;
+            border-radius: 20px;
+            margin-top: 10px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            box-shadow: 3px 3px 3px gray;
+        }
+
+        .trending-profile {
+            display: flex;
+            justify-content: flex-start;
+            cursor: pointer;
+            gap: 20px;
+            transition: 100ms;
+        }
+
+        .trending-profile:hover {
+            background-color: rgb(201, 206, 207);
+            border-radius: 20px;
+        }
+
+        .trending-profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .profile-name p {
+            font-size: 14px;
+            font-weight: 300;
+        }
